@@ -2,6 +2,7 @@ package com.xbongbong.paas.dao;
 
 import com.xbongbong.paas.domain.UserModel;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,8 +10,8 @@ import org.springframework.stereotype.Repository;
  * @date: 2018/7/12 14:02
  * @desrcption:
  */
-@Mapper
 @Repository
+@Mapper
 public interface UserDao {
     /**
      * 查询用户

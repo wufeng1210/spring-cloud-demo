@@ -20,7 +20,7 @@ import java.util.Properties;
  * @date: 2018/7/12 10:56
  * @desrcption: 集成Mybatis的基本入口
  */
-
+@Deprecated
 public class DataSourceConfig {
 
     @Value("${driverClassName}")

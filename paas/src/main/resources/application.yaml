@@ -35,5 +35,5 @@ spring:
         pool-prepared-statements: false
         max-pool-prepared-statement-per-connection-size: 20
 mybatis:
-  type-aliases-package: com.xbongbong.paas.dao
+  type-aliases-package: com.xbongbong.paas.domain
   mapper-locations: classpath:mapper/*.xml
