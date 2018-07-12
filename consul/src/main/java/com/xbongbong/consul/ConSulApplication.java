@@ -14,6 +14,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class ConSulApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(ConSulApplication.class).web(true).run(args);
+        new SpringApplicationBuilder(ConSulApplication.class).run(args);
     }
 }

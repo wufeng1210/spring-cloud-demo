@@ -25,6 +25,6 @@ public class HystrixApplication {
     }
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(HystrixApplication.class).web(true).run(args);
+        new SpringApplicationBuilder(HystrixApplication.class).run(args);
     }
 }

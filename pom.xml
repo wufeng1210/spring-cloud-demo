@@ -12,6 +12,7 @@
         <module>consul</module>
         <module>api-gateway</module>
         <module>hystrix</module>
+        <module>paas</module>
     </modules>
 
     <parent>
