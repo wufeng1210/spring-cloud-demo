@@ -2,6 +2,7 @@ package com.xbongbong.paas.dao;
 
 import com.xbongbong.paas.domain.UserModel;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @Mapper
-public interface UserDao {
+public interface UserDaoMapper {
     /**
      * 查询用户
      * @author wufeng

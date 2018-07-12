@@ -1,6 +1,6 @@
 package com.xbongbong.paas.service.impl;
 
-import com.xbongbong.paas.dao.UserDao;
+import com.xbongbong.paas.dao.UserDaoMapper;
 import com.xbongbong.paas.domain.UserModel;
 import com.xbongbong.paas.dto.resp.UserResp;
 import com.xbongbong.paas.service.UserService;
@@ -16,11 +16,11 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserDaoMapper userDaoMapper;
 
     @Override
     public UserResp findUser(Long id) {
-        UserModel userModel = userDao.findUser(id);
+        UserModel userModel = userDaoMapper.findUser(id);
         UserResp userResp = new UserResp();
         userResp.setUserModel(userModel);
         return userResp;
