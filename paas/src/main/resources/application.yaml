@@ -1,5 +1,5 @@
 server:
-    port: 2101
+    port: 2102
 spring:
     application:
         name: paas
