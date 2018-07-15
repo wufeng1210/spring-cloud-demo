@@ -21,6 +21,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
  * @date: 2018/7/13 18:52
  * @desrcption:
  */
+@Configuration
 public class RouteConfiguration {
 
     /**
@@ -54,7 +55,7 @@ public class RouteConfiguration {
         //@formatter:off
         return builder.routes()
                 .route(r -> r.path("/consul/**")
-                        .uri("http://localhost:2001/"))
+                        .uri("http://localhost:2001/dc"))
                 .build();
     }
 

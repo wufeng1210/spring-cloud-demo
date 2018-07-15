@@ -3,24 +3,6 @@ server:
 spring:
     application:
         name: springcloudgateway
-    cloud:
-      gateway:
-        routes:
-        - id: consul_route
-          uri: localhost:2001
-          predicates:
-          - Path= /consul/**
-        - id: websocket_test
-          uri: ws://localhost:9000
-          order: 9000
-          predicates:
-          - Path=/echo
-        # =====================================
-        - id: default_path_to_httpbin
-          uri: localhost:9090
-          order: 10000
-          predicates:
-          - Path=/**
 
 logging:
   level:
