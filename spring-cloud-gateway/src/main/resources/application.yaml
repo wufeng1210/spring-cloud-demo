@@ -3,6 +3,33 @@ server:
 spring:
     application:
         name: springcloudgateway
+    cloud:
+        gateway:
+          filter:
+            remove-non-proxy-headers:
+              headers:
+              - dummy
+          routes:
+            - id:  consul
+            # 重点！/info必须使用http进行转发，lb代表从注册中心获取服务
+              uri: http://localhost:2001
+              predicates:
+              # 重点！转发该路径！,/consul/**,
+              - Path=/consul/**
+              # http://localhost:1102/consul/dc, 必须加上StripPrefix=1，否则访问服务时会带上consul
+              #而不是我们期望的去掉userapi，只保留**部分
+              filters:
+              - StripPrefix=1
+            - id:  paas
+            # 重点！/info必须使用http进行转发，lb代表从注册中心获取服务
+              uri: http://localhost:2102
+              predicates:
+              # 重点！转发该路径！,/paas/**,
+              - Path=/paas/**
+              # http://localhost:1102/paas/findUser?id=1, 必须加上StripPrefix=1，否则访问服务时会带上paas
+              #而不是我们期望的去掉userapi，只保留**部分
+              filters:
+              - StripPrefix=1
 
 logging:
   level:

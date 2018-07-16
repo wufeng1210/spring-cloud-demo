@@ -1,5 +1,6 @@
 package com.xbongbong.gateway.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.ratelimit.RedisRateLimiter;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
@@ -50,14 +51,21 @@ public class RouteConfiguration {
      * 如鉴权之后构造头部之类的，过滤的种类很多，如增加请求头、增加请求参数、增加响应头和断路器等等功能。
      * @return org.springframework.cloud.gateway.route.RouteLocator
      */
-    @Bean
+   /* @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         //@formatter:off
         return builder.routes()
-                .route(r -> r.path("/consul/**")
-                        .uri("http://localhost:2001/dc"))
+                .route("consul", r -> r.path("/consul/**")
+                        .filters(f -> f.stripPrefix(1))
+                        .uri("http://localhost:2001/"))
+                .route("paas",r -> r.path("/paas/**")
+                        .filters(f -> f.stripPrefix(1))
+                        .uri("http://localhost:2102/findUser?id=1"))
+                .route("hystrix_fallback_route", r -> r.path("/hystrix/**")
+                        .filters(f -> f.hystrix(c -> c.setName("slowcmd").setFallbackUri("forward:/consumer")))
+                        .uri("http://localhost:2101/consumer"))
                 .build();
-    }
+    }*/
 
     @Bean
     RedisRateLimiter redisRateLimiter() {
