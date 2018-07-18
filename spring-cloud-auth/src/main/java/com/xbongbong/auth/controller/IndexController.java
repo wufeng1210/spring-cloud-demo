@@ -24,10 +24,4 @@ public class IndexController {
         return authService.auth();
     }
 
-    @RequestMapping("/login")
-    public ModelAndView login(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("login");
-        return mv;
-    }
 }

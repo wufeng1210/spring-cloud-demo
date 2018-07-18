@@ -9,6 +9,7 @@ import java.util.List;
  * @date: 2018/7/17 20:36
  * @desrcption: 注册服务
  */
+@Deprecated
 public class AuthReq {
 
     private String clientSecret;

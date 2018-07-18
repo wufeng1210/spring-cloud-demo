@@ -5,6 +5,7 @@ package com.xbongbong.auth.dto.req;
  * @date: 2018/7/18 9:54
  * @desrcption:
  */
+@Deprecated
 public class User {
 
     private String userName;

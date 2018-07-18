@@ -19,6 +19,7 @@ import java.nio.charset.Charset;
  * @date: 2018/7/17 16:39
  * @desrcption:
  */
+@Deprecated
 public class OAuth2Config {
 
 
