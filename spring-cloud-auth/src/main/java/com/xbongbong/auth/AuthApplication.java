@@ -12,6 +12,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @author: wufeng
  * @date: 2018/7/17 15:32
  * @desrcption:
+ * 步骤：
+ * 1、访问地址：http://localhost:1103/oauth/authorize?response_type=code&client_id=client&redirect_uri=http://baidu.com&state=123 跳转至登录界面；
+ * 2、登录成功之后到达authorize.ftl界面选择：approve
+ * 3、会跳转至www.baidu.com，在链接尾部会有code字段；
+ * 4、利用第3步的code字段，发送post请求，地址为：http://localhost:1103/oauth/token?client_id=client&grant_type=authorization_code&redirect_uri=http://baidu.com&code=Bp8Hq5
+ * 5、获取返回的access_token
  */
 @SpringBootApplication
 @EnableDiscoveryClient

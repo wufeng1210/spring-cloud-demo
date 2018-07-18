@@ -5,5 +5,3 @@ spring:
         name: spring-cloud-auth
     freemarker:
         template-loader-path: classpath:/templates
-    thymeleaf:
-        prefix: classpath:/templates
