@@ -1,0 +1,18 @@
+server:
+  port: 2002
+spring:
+  application:
+    name: rabbitmq-consumer
+  cloud:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment: #配置rabbimq连接环境
+            spring:
+              #rabbitmq相关配置
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: eric
+                password: 123456
+                virtual-host: /

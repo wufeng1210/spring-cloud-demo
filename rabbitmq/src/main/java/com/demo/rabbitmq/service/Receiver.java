@@ -14,7 +14,8 @@ import org.springframework.stereotype.Component;
  * 注解很重要，标注了exchange、routingkey、queue之间的关系，对应指定到这个queue
  */
 @Component
-@RabbitListener(bindings = {@QueueBinding(value = @Queue(value = "hello"), exchange = @Exchange(value = "topic-exchange"), key = "hello")})
+@RabbitListener(bindings = {@QueueBinding(value = @Queue(value = "hello"),
+        exchange = @Exchange(value = "topic-exchange"), key = "hello")})
 public class Receiver {
 
     @RabbitHandler

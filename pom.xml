@@ -18,6 +18,8 @@
         <module>rabbitmq</module>
         <module>stream-input-output</module>
         <module>stream-output-input</module>
+        <module>rabbitmq-consumer</module>
+        <module>rabbitmq-producer</module>
     </modules>
 
     <properties>
