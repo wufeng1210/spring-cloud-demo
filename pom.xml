@@ -16,6 +16,8 @@
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-auth</module>
         <module>rabbitmq</module>
+        <module>stream-input-output</module>
+        <module>stream-output-input</module>
     </modules>
 
     <properties>
