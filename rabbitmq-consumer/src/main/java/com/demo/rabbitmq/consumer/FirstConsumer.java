@@ -16,6 +16,6 @@ public class FirstConsumer {
 
     @RabbitHandler
     public void process(String msg){
-        System.out.print("first queue received msg : " + msg);
+        System.out.println("first queue received msg : " + msg);
     }
 }

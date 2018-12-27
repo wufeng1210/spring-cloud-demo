@@ -1,6 +1,7 @@
 package com.demo.rabbitmq.producer;
 
 import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,12 +17,15 @@ public class MyProducer {
     @Autowired
     private AmqpTemplate amqpTemplate;
 
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
     public void send(){
-        amqpTemplate.convertAndSend("DIRECT_EXCHANGE", "firstRouterKey", "a direct msg");
+        rabbitTemplate.convertAndSend("DIRECT_EXCHANGE", "firstRouterKey", "a direct msg");
 
-        amqpTemplate.convertAndSend("TOPIC_EXCHANGE", "secondRouterKey.one", " a topic one msg");
-        amqpTemplate.convertAndSend("TOPIC_EXCHANGE", "secondRouterKey.two", " a topic two msg");
+        rabbitTemplate.convertAndSend("TOPIC_EXCHANGE", "secondRouterKey.one", " a topic one msg");
+        rabbitTemplate.convertAndSend("TOPIC_EXCHANGE", "secondRouterKey.two", " a topic two msg");
 
-        amqpTemplate.convertAndSend("FANOUT_EXCHANGE", "", "a fanout msg");
+        rabbitTemplate.convertAndSend("FANOUT_EXCHANGE", "", "a fanout msg");
     }
 }

@@ -1,9 +1,9 @@
 package com.demo.rabbitmq.config;
 
 import org.springframework.amqp.core.*;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @program: spring-cloud-demo
@@ -11,11 +11,11 @@ import org.springframework.context.annotation.Bean;
  * @author: wufeng
  * @create: 2018-12-26 23:37
  **/
-@Configurable
+@Configuration
 public class RabbitMqConfig {
 
 
-    @Bean
+    @Bean("directExchange")
     public DirectExchange directExchange(){
         return new DirectExchange("DIRECT_EXCHANGE");
     }
@@ -30,7 +30,7 @@ public class RabbitMqConfig {
         return new FanoutExchange("FANOUT_EXCHANGE");
     }
 
-    @Bean
+    @Bean("firstQueue")
     public Queue firstQueue(){
         return new Queue("FIRST_QUEUE");
     }
@@ -58,7 +58,7 @@ public class RabbitMqConfig {
     @Bean
     public Binding topicBinding(@Qualifier("secondQueue") Queue queue,
                                  @Qualifier("topicExchange") TopicExchange exchange){
-        return BindingBuilder.bind(queue).to(exchange).with("secondRouterKey.");
+        return BindingBuilder.bind(queue).to(exchange).with("secondRouterKey.*");
     }
 
 

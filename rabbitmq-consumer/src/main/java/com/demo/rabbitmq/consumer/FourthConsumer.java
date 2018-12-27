@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class FourthConsumer {
 
     @RabbitHandler
-    public void prcess(String msg){
+    public void process(String msg){
         System.out.println("fourth queue received msg : " + msg);
     }
 }
