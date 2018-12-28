@@ -48,15 +48,24 @@ public class RabbitMqConfig {
         return new Queue("FOURTH_QUEUE");
     }
 
-
+    @Bean("fifthQueue")
+    public Queue fifthQueue(){
+        return new Queue("FIFTH_QUEUE");
+    }
     @Bean
-    public Binding directBinding(@Qualifier("firstQueue") Queue queue,
+    public Binding firstBinding(@Qualifier("firstQueue") Queue queue,
                                  @Qualifier("directExchange") DirectExchange exchange){
         return BindingBuilder.bind(queue).to(exchange).with("firstRouterKey");
     }
 
     @Bean
-    public Binding topicBinding(@Qualifier("secondQueue") Queue queue,
+    public Binding fifthBinding(@Qualifier("fifthQueue") Queue queue,
+                                 @Qualifier("directExchange") DirectExchange exchange){
+        return BindingBuilder.bind(queue).to(exchange).with("fifthRouterKey");
+    }
+
+    @Bean
+    public Binding secondBinding(@Qualifier("secondQueue") Queue queue,
                                  @Qualifier("topicExchange") TopicExchange exchange){
         return BindingBuilder.bind(queue).to(exchange).with("secondRouterKey.*");
     }

@@ -27,5 +27,7 @@ public class MyProducer {
         rabbitTemplate.convertAndSend("TOPIC_EXCHANGE", "secondRouterKey.two", " a topic two msg");
 
         rabbitTemplate.convertAndSend("FANOUT_EXCHANGE", "", "a fanout msg");
+
+        amqpTemplate.convertAndSend("DIRECT_EXCHANGE", "fifthRouterKey", "a direct msg : fifth");
     }
 }
