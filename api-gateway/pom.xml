@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.xbongbong.paas</groupId>
-        <artifactId>demo</artifactId>
+        <artifactId>spring-cloud-demo</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
